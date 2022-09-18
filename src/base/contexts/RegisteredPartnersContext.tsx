@@ -23,7 +23,7 @@ const RegisteredPartnersProvider: React.FC<RegisteredPartnersProviderProps> = ({
   const storage = useLocalStorage();
   const inLocalStorage = storage.getItem(REGISTERED_PARTNERS);
 
-  const [registeredPartners, setRegisteredPartners] = useState<RegisterProps[]>(JSON.parse(inLocalStorage) || []);
+  const [registeredPartners, setRegisteredPartners] = useState<RegisterProps[]>((inLocalStorage && JSON.parse(inLocalStorage)) || []);
 
   const addNewPartner = (values: RegisterProps) => {
     const updated = [...registeredPartners, values];
